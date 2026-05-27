@@ -66,6 +66,11 @@ export const AuthScreen = () => {
       </section>
 
       <section className="auth-card" aria-label="Authentication form">
+        <div className="auth-card-header">
+          <h2>{mode === 'login' ? 'Welcome back' : 'Create your account'}</h2>
+          <p>{mode === 'login' ? 'Sign in to continue managing your tasks.' : 'Start tracking your work in a cleaner workspace.'}</p>
+        </div>
+
         <div className="mode-switch" role="tablist" aria-label="Authentication mode">
           <button
             type="button"

@@ -1,10 +1,11 @@
-import { LogOut, Moon, Search, Sun } from 'lucide-react'
+import { Moon, Search, Sun } from 'lucide-react'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 import { taskApi } from '../services/api'
 import type { Pagination, Task, TaskPayload, TaskStatus } from '../types'
 import { TaskCard } from './TaskCard'
 import { TaskForm } from './TaskForm'
+import AlertConfirm from './AlertConfirm'
 
 type Filter = TaskStatus | 'all'
 
@@ -113,10 +114,7 @@ export const Dashboard = () => {
           >
             {darkMode ? <Sun size={19} /> : <Moon size={19} />}
           </button>
-          <button className="logout-button" onClick={logout} type="button">
-            <LogOut size={18} />
-            Logout
-          </button>
+          <AlertConfirm onConfirm={logout} />
         </div>
       </header>
 
